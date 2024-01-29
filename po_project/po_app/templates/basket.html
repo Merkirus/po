@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block popupwindows %}
+
+<div id="summaryWindow" class="summary popupWindow">
+    <p style="font-weight: bold; font-size: 24px;">Podsumowanie</p>
+    <br>
+    <p>Łączna kwota koszyka:</p>
+    <p>x</p>
+    <br>
+    <div style="padding: 10px;display:flex; justify-content:center; text-align: center;">
+        <button class="btn btn-danger popupButton" onclick="closeWindow('summaryWindow')">X</button>
+    </div>
+</div>
+
+{% endblock popupwindows %}
+
+{% block title %}Koszyk{% endblock title %}
+
+{% block content %}
+
+<div class="basket">
+    <div class="leftSideBasket">
+        <div class="upperLeftSideBasket">
+            <a class="btn btn-primary" href="/offert/">&laquo; Asortyment</a>
+        </div>
+        <div>
+            <form name="deleteAll" method="post">
+                <input type="hidden" id="formtype" name="formtype" value="deleteAll">
+                {% csrf_token %}
+                <input class="btn btn-danger" type="button" name="deleteAll" value="Usuń zawartość">
+            </form>
+        </div>
+        <div class="lowerLeftSideBasket">
+            <a class="btn btn-primary" onclick="showWindow('summaryWindow')">Podsumowanie</a>
+            <a class="btn btn-primary" href="/offert/">Złóż zamówienie</a>
+        </div>
+    </div>
+
+    <div class="rightSideBasket">
+        <div class="itemList">
+            {% for item in items %}
+            <div class="item">
+                <div class="itemHelper">
+                    <img src="#">
+                    <p style="padding-left: 10px;">Przedmiot</p>
+                </div>
+                <div class="itemHelper">
+                    <p>Cena</p>
+                    <p style="padding-left: 10px;">Ilość</p>
+                </div>
+                <div class="itemHelper">
+                    <form name="remove" method="post">
+                        <input type="hidden" id="formtype" name="formtype" value="remove">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger" name="deleteAll">-</button>
+                    </form>
+                    <form name="add" method="post">
+                        <input type="hidden" id="formtype" name="formtype" value="remove">
+                        {% csrf_token %}
+                        <button type="submit" style="margin-left: 10px;" class="btn btn-primary" name="deleteAll">+</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

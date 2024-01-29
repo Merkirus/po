@@ -1,0 +1,212 @@
+html {
+    --text: #010D14;
+    --surface: #CED6DF;
+    --surface-2: #E6EAEF;
+    --surface-3: #F3F5F7;
+    --surface-deep: #A8B6C7;
+    --accent-dark: #28666E;
+    --link: #0B88D5;
+    --border: rgba(2, 25, 39, 0.4);
+
+    font-family: system-ui, sans-serif;
+    height: 100%;
+    color: var(--text);
+    background-color: var(--surface-3);
+}
+
+@media (prefers-color-scheme: dark){
+    html {
+        --text: #ECF7FE;
+        --surface: #28343E;
+        --surface-2: #202931;
+        --surface-3: #181F25;
+        --surface-deep: #384957;
+        --accent-dark: #78C4CE;
+        --link: #64BFF7;
+        --border: rgba(118, 145, 167, 0.4);
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-bottom: 2px solid var(--border);
+    background-color: var(--surface-2);
+}
+
+.header_left {
+    padding: 10px;
+}
+
+.header_center {
+    padding: 10px;
+}
+
+.header_right {
+    padding: 10px;
+}
+
+.basket {
+    position: absolute;
+    display: flex;
+    width: 95%;
+    height: 90%;
+    margin: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.leftSideBasket {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    border: 2px solid var(--border);
+    padding: 20px;
+}
+
+.upperLeftSideBasket {
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.lowerLeftSideBasket {
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.rightSideBasket {
+    display: absolute;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 2px solid var(--border);
+}
+
+.itemList {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+    border: solid;
+    border-radius: 4px;
+    background-color: var(--surface);
+    border-color: var(--border);
+    padding: 4px;
+    border-width: 2px;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.itemHelper {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.offertWrapper {
+    display: flex;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    margin-left: 10%;
+    border: solid;
+    border-radius: 4px;
+    border-color: var(--border);
+}
+
+.searchBar {
+    height: 10%;
+    width: 100%;
+    border: solid;
+    border-radius: 4px;
+    border-color: var(--border);
+}
+
+.searchForm {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.searchBarInput {
+    width: 80%;
+    height: 100%;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.searchBarSubmit {
+    width: 15%;
+    align-items: center;
+}
+
+.btn {
+    background-color: var(--surface-deep);
+}
+
+.windowBackground {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #0006;
+    display: none;
+}
+
+.popupWindow {
+    color: white;
+    z-index: 2;
+    max-width: 250px;
+    max-height: 250px;
+    margin: 96px auto;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px 0 var(--accent-dark);
+    display: flex;
+    flex-direction: column;
+}
+
+.popupWindow > p, button {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupButton {
+    align-items: center;
+    text-align: center;
+}
+
+.summary {
+    width: 100%;
+    height: 100%;
+}
