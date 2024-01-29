@@ -22,5 +22,7 @@ from po_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('offert/', views.offert, name='offert'),
-    path('basket/', views.basket, name='basket')
+    path('basket/', views.basket, name='basket'),
+    path('order/', views.order, name='order'),
+    path('order/basket', views.order_basket, name='order_basket')
 ]

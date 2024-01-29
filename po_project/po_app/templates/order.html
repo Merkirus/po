@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Zamówienie{% endblock title %}
+
+{% block content %}
+
+<form action="basket" name="order" method="post">
+{% csrf_token %}
+<div class="orderWrapper">
+    <div class="tab" onclick="openTab('tabDelivery')">Dostawa</div>
+    <div class="tab" onclick="openTab('tabPay')">Płatność</div>
+    <div class="orderInnerWrapper">
+        <div id="tabDelivery" class="tabDelivery tabContent">
+            <div class="tabDeliveryContent">
+                <div class="tabDeliveryContentHeader"><p>Sposób dostawy</p></div>
+                <div class="tabDeliveryContentLeftBodyWrapperWrapper">
+                    <div class="tabDeliveryContentLeftBodyWrapper">
+                        <div class="tabDeliveryContentLeftUpperWrapper">
+                            <div class="tabDeliveryContentLeftUpperBody">
+                                {% comment %} checkbox {% endcomment %}
+                            </div>
+                            <div style="border-right: none;" class="tabDeliveryContentLeftUpperBody">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border-bottom: none;" class="tabDeliveryContentLeftBodyWrapper">
+                    </div>
+                </div>
+            </div>
+            <div style="border-right: none;" class="tabDeliveryContent">
+                <div class="tabDeliveryContentHeader"><p>Podsumowanie</p></div>
+            </div>
+        </div>
+        <div id="tabPay" class="tabDelivery tabContent">
+            <div class="tabDeliveryContent">
+                <div class="tabDeliveryContentHeader">
+                    <p>Sposób dostawy</p>
+                    <select style="color:black;margin-left:20px;font-size:16px;" name="payment_method">
+                        <option value="online">Online</option>
+                        <option value="offline">Stacjonarnie</option>
+                    </select>
+                </div>
+                <div class="tabPayContentLeftBodyWrapper">
+                    <p>XD</p>
+                </div>
+            </div>
+            <div style="border-right: none;" class="tabDeliveryContent">
+                <div class="tabDeliveryContentHeader"><p>Podsumowanie</p></div>
+                <div class="summaryOrder">
+                    <button class="btn btn-primary" type="submit">Zapłać</buttom>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+{% endblock content %}

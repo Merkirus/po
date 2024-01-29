@@ -5,11 +5,15 @@
 <div id="summaryWindow" class="summary popupWindow">
     <p style="font-weight: bold; font-size: 24px;">Podsumowanie</p>
     <br>
+    {% if items|length != 0 %}
     <p>Łączna kwota koszyka:</p>
     <p>x</p>
+    {% else %}
+    <p style="color:red;">Koszyk pusty</p>
+    {% endif %}
     <br>
     <div style="padding: 10px;display:flex; justify-content:center; text-align: center;">
-        <button class="btn btn-danger popupButton" onclick="closeWindow('summaryWindow')">X</button>
+        <button class="btn btn-danger popupButton" onclick="closeWindow('summaryWindow')">Zamknij</button>
     </div>
 </div>
 
@@ -28,12 +32,12 @@
             <form name="deleteAll" method="post">
                 <input type="hidden" id="formtype" name="formtype" value="deleteAll">
                 {% csrf_token %}
-                <input class="btn btn-danger" type="button" name="deleteAll" value="Usuń zawartość">
+                <button class="btn btn-danger" type="submit" name="deleteAll">Usuń zawartość</button>
             </form>
         </div>
         <div class="lowerLeftSideBasket">
             <a class="btn btn-primary" onclick="showWindow('summaryWindow')">Podsumowanie</a>
-            <a class="btn btn-primary" href="/offert/">Złóż zamówienie</a>
+            <a class="btn btn-primary" href="/order/">Złóż zamówienie</a>
         </div>
     </div>
 
