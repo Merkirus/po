@@ -43,3 +43,4 @@ class Order(models.Model):
     delivery = models.ForeignKey(Delivery, on_delete=models.CASCADE, null=True, blank=True)
     receipt = models.ForeignKey(Bill, on_delete=models.CASCADE, null=True, blank=True)
     basket = models.ForeignKey(Basket, on_delete=models.CASCADE, null=False, blank=False)
+    date = models.CharField(max_length=255, null=False, blank=False)

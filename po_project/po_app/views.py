@@ -168,7 +168,9 @@ def order_basket(request):
             OrderState.objects.create(name="W realizacji")
             order_state = OrderState.objects.get(name="W realizacji")
 
-        Order.objects.create(state=order_state, delivery=delivery, receipt=payment, basket=basket)        
+        date = vars["datepicker"]
+
+        Order.objects.create(state=order_state, delivery=delivery, receipt=payment, basket=basket, date=date)     
         
     new_basket_state = None
 
