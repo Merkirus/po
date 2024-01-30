@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}Oferta{% endblock title %}
 
 {% block content %}
@@ -17,7 +17,22 @@
     <div class="itemList">
         {% for item in items %}
             <div class="item">
-
+                <div class="itemHelper">
+                    <img style="width:100px; height:100px;" src="{% static 'flowers/'|add:item.name|add:'.png' %}">
+                    <p style="padding-left: 10px;">{{item.name}}</p>
+                </div>
+                <div class="itemHelper" style="justify-content:center;">
+                    <p>Cena: {{item.price}}</p>
+                    <p style="padding-left: 10px;">Ilość: {{item.left}}</p>
+                </div>
+                <div class="itemHelper" style="justify-content:right;">
+                    <form name="{{item.id}}" method="post">
+                        <input type="hidden" id="formtype" name="formtype" value="add">
+                        {% csrf_token %}
+                        <input type="hidden" id="item_id" name="item_id" value="{{item.id}}">
+                        <button type="submit" style="margin-left: 10px;" class="btn btn-primary">+</button>
+                    </form>
+                </div>
             </div>
         {% endfor %}
     </div>

@@ -24,5 +24,6 @@ urlpatterns = [
     path('offert/', views.offert, name='offert'),
     path('basket/', views.basket, name='basket'),
     path('order/', views.order, name='order'),
-    path('order/basket', views.order_basket, name='order_basket')
+    path('order/basket', views.order_basket, name='order_basket'),
+    path('basket/<str:error>', views.basket, name="basket_error")
 ]
