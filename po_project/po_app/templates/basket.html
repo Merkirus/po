@@ -68,7 +68,7 @@
         </div>
         <div class="lowerLeftSideBasket">
             <a class="btn btn-primary" onclick="showWindow('summaryWindow')">Podsumowanie</a>
-            <a class="btn btn-primary" href="/order/">Złóż zamówienie</a>
+            <a class="btn btn-primary" {% if sum != 0.0 %}href="/order/"{% else %}disabled{% endif %} >Złóż zamówienie</a>
         </div>
     </div>
 
